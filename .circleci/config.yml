@@ -66,6 +66,21 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_pipeline_id
+  
+  error_handling:
+    docker:
+      - image: circleci/node:13.8.0
+    steps: 
+      - run:
+          name: fail on purpose
+          command: |
+            return 1
+      - run:
+          name: handle the error
+          command: |
+            echo "Error Handled"
+          when: on_fail
+
 
             
 # Orchestrate or schedule a set of jobs
@@ -82,4 +97,6 @@ workflows:
           requires: [print_hello, print_world]
       # - print_output_file:
       #     requires: [save_hello_world_output]
-      - use_command
+      # - use_command
+      - error_handling
+
