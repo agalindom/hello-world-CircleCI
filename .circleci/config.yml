@@ -8,7 +8,7 @@ jobs:
     environment: 
       GREET: "Hello"
     docker:
-      - image: circleci/alpine:3.12
+      - image: circleci/node:13.8.0
     steps:
       - run: 
           name: print greet message
@@ -18,7 +18,7 @@ jobs:
     environment:
       SUBJECT: "World"
     docker:
-      - image: circleci/alpine:3.12
+      - image: circleci/node:13.8.0
     steps:
       - run:
           name: print greeet subject
@@ -27,7 +27,7 @@ jobs:
 
   print_name:
     docker:
-      - image: circleci/alpine:3.12
+      - image: circleci/node:13.8.0
     steps:
       - run:
           name: users name
