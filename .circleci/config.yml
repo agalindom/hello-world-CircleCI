@@ -43,9 +43,8 @@ jobs:
           command: |
             echo "hello world" > output.txt
       - persist_to_workspace:
-          root: /tmp/dir
+          root: ~/ 
           paths:
-            - ~/output.txt
             - output.txt
   
   print_output_file:
